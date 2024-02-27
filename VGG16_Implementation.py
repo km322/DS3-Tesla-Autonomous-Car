@@ -1,7 +1,6 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import os
-import cv2 as cv
 import matplotlib.pyplot as plt
 from keras.applications import vgg16
 from keras.models import Model,load_model
@@ -16,12 +15,6 @@ from keras import backend as K
 
 
 
-
-input_shape = (500, 500, 3)
-current_working_directory = os.getcwd()
-
-# print(current_working_directory)
-VGG16_weight = current_working_directory + "/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5"
 
 
 def create_segmentation_model(input_shape, num_classes):
@@ -82,3 +75,5 @@ model = create_segmentation_model(input_shape=(224, 224, 3), num_classes=21)  # 
 model.compile(optimizer=Adam(learning_rate=1e-4), loss='categorical_crossentropy', metrics=['accuracy'])
 early_stopping = EarlyStopping(monitor='val_loss', patience=10)
 model_checkpoint = ModelCheckpoint('best_model.h5', monitor='val_loss', save_best_only=True)
+
+model.summary()
