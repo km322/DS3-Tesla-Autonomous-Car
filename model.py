@@ -197,13 +197,13 @@ model = create_segmentation_model(input_shape=(224, 224, 3))  # Assuming n class
 model.compile(optimizer=Adam(learning_rate=1e-4), loss='categorical_crossentropy', metrics=['accuracy'])
 early_stopping = EarlyStopping(monitor='loss', patience=10)
 
-checkpoint_filepath = '/User//tmp/checkpoint/epoch_{epoch:02d}-val_loss_{val_loss:.2f}.hdf5'
-model_checkpoint_callback = ModelCheckpoint(
-    filepath=checkpoint_filepath,
-    save_weights_only=True,
-    monitor='val_loss',
-    mode='min',
-    save_best_only=False) # Save the model after every epoch
+# checkpoint_filepath = '/User/tmp/checkpoint/epoch_{epoch:02d}-val_loss_{val_loss:.2f}.hdf5'
+# model_checkpoint_callback = ModelCheckpoint(
+#     filepath=checkpoint_filepath,
+#     save_weights_only=True,
+#     monitor='val_loss',
+#     mode='min',
+#     save_best_only=False) # Save the model after every epoch
 
 model.summary()
 
@@ -220,7 +220,7 @@ history = model.fit(
     epochs=10, 
     steps_per_epoch=10,
 #     verbose=1,
-    callbacks=[early_stopping, model_checkpoint]
+    callbacks=[early_stopping]
 )
 
 
