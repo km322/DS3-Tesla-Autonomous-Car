@@ -77,25 +77,8 @@ def postprocess_prediction(prediction, target_size=(224, 224)):
     # Take the argmax across channels to convert to class indices
     predicted_mask = np.argmax(prediction, axis=-1)
     # Remove the batch dimension
-    predicted_mask = predicted_mask[0]
+    predicted_mask = predicted_mask[2]
     return predicted_mask
-            
-
-
-
-# def display(index, target_size=(224, 224)):
-#     img_path=image_files[index]
-#     mask_path=mask_files[index]
-#     image_array = preprocess_input_image(img_path)
-#     prediction = predict_mask(model, image_array)
-#     predicted_mask = postprocess_prediction(prediction)
-    
-#     plt.imshow(load_img(img_path, target_size=target_size))
-#     plt.imshow(load_img(mask_path, target_size=target_size))
-#     plt.imshow(predicted_mask)  # Use a colormap that makes sense for your dataset
-#     plt.show()    
-    
-# display(0)
 
 
 

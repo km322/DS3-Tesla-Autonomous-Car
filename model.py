@@ -209,9 +209,6 @@ model.summary()
 
 
 
-# Set up the ModelCheckpoint callback
-
-
 
 
 history = model.fit(
