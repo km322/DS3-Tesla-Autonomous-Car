@@ -139,7 +139,5 @@ Get @km322 to add you as a contributor. It is the way and the only way.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Ourselves. We are awesome. :D 
-Ty DS3 For all your help
 Kaggle user KUMARESAN provided the dataset
 
